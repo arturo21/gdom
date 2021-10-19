@@ -1,0 +1,61 @@
+{
+  "name": "general.js-lib",
+  "version": "1.0.0",
+  "description": "JS Library that handles DOM / Events - DOM / AJAX - FETCH / WebSockets-Webworkers / Carousel / Watch - UnWatch / - Accordion - Datepicker - Colorpicker - Calendar - Crypto - expansible",
+  "main": "app.js",
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@pluginjs/modal": "^0.7.20",
+    "@vimeo/player": "^2.10.0",
+    "a-color-picker": "^1.2.1",
+    "accordion": "^3.0.2",
+    "accordion-js": "^2.8.0",
+    "babel-loader": "^8.0.6",
+    "calendar-js": "^1.4.4",
+    "crypto-js": "^3.1.9-1",
+    "css-loader": "^3.2.0",
+    "js-calendar": "^1.2.3",
+    "js-datepicker": "^4.6.6",
+    "jspanel4": "^4.8.0",
+    "modly-js": "^0.0.11",
+    "plyr": "^3.5.6",
+    "style-loader": "^1.0.0",
+    "uglify-js": "^3.6.8",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vanilla-js-calendar": "^1.1.0",
+    "vanilla-modal": "^1.6.5",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturo21/generaljs.git"
+  },
+  "keywords": [
+    "generaljs",
+    "general",
+    "api",
+    "javascript",
+    "library",
+    "programming",
+    "js",
+    "dom",
+    "websocket",
+    "webworker",
+    "ajax",
+    "fetch",
+    "video"
+  ],
+  "author": "Arturo Vásquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arturo21/generaljs/issues"
+  },
+  "homepage": "https://github.com/arturo21/generaljs#readme"
+}

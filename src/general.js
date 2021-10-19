@@ -1,3 +1,29 @@
+/*
+  Copyright (C) 2021 Arturo Vasquez Soluciones Web.
+  Todos los derechos reservados.
+
+  La redistribución y uso en formatos fuente y binario están permitidas
+  siempre que el aviso de copyright anterior y este párrafo son
+  duplicado en todas esas formas y que cualquier documentación,
+  materiales de publicidad y otros materiales relacionados con dicha
+  distribución y uso reconocen que el software fue desarrollado
+  por el Arturo Vasquez Soluciones Web. El nombre de
+  Arturo Vasquez Soluciones Web No se puede utilizar para respaldar o promocionar productos derivados
+  de este software sin el permiso previo por escrito.
+  ESTE SOFTWARE SE PROPORCIONA '' tal cual '' Y SIN EXPRESA O
+  Garantías implícitas, incluyendo, sin limitación, los implicados
+  GARANTÍAS DE COMERCIALIZACIÓN Y APTITUD PARA UN PROPÓSITO PARTICULAR.
+*/
+/*Integrado GDOM para el manejo del DOM / eventos / AJAX */
+/*Este archivo lo necesita Function SMOOTH SCROLL*/
+require("./requestAnimationFrame.js");
+require("./css/animate.css");
+/*************************************************/
+let numapps=0;
+let elementactive="html";
+let varsint=[{}];
+let scope=[{}];
+
 g=(function(global,factory){
 	this.elemaux='';
 	this.childrenaux=[{}];
@@ -563,9 +589,8 @@ g=(function(global,factory){
 				}
 			},
 			remove:function(){
-		      	let objeto;
-		      	objetorm=getelem(domel);
-		      	objetorm.parentNode.removeChild(objeto);
+				let elem = document.getElementById(domel);
+				elem.parentNode.removeChild(elem);
 		      	return this;
 			},
 			replaceWith:function(string){
@@ -1338,3 +1363,5 @@ g=(function(global,factory){
 		}
 	}
 }(window));
+
+module.exports=g;

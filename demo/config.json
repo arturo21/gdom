@@ -1,0 +1,20 @@
+{
+    "DEFAULT": {
+        "DB_HOST": "localhost",
+        "DB_NAME": "sysconfig",
+        "DB_USER": "arturo",
+        "DB_PASSWORD": "Arat5uro"
+    },
+    "TESTING": {
+        "DB_HOST": "localhost",
+        "DB_NAME": "sysconfig",
+        "DB_USER": "arturo",
+        "DB_PASSWORD": "Arat5uro"
+    },
+    "PRODUCTION": {
+        "DB_HOST": "localhost",
+        "DB_NAME": "db_name_production",
+        "DB_USER": "db_user_production",
+        "DB_PASSWORD": "db_password_production"
+    }
+}
