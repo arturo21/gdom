@@ -1363,5 +1363,23 @@ g=(function(global,factory){
 		}
 	}
 }(window));
-
+g.__proto__.getelem=function(id){
+	let objeto;
+	if(typeof id==='string'){
+		objeto=document.querySelector(id);
+		if(typeof objeto==='object'){
+			return objeto;
+		}
+	}
+};
+g.__proto__.getelems=function(tag){
+	let arrtags=[];
+	if(tag!=undefined){
+		arrtags=document.querySelectorAll(tag);
+		return arrtags;
+	}
+	else{
+		return -1;
+	}
+};
 module.exports=g;
