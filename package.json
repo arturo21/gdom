@@ -1,7 +1,7 @@
 {
-  "name": "generaljs-2021",
-  "version": "2.0.1",
-  "description": "JS Library that handles DOM, AJAX, Fetch, Websockets, Webworkers to high performance websites ",
+  "name": "gdom-0.0.1",
+  "version": "0.0.1",
+  "description": "JS Library that handles DOM",
   "main": "webpack.config.js",
   "dependencies": {
     "a-color-picker": "^1.2.1",
@@ -153,19 +153,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arturo21/generaljs.git"
+    "url": "git+https://github.com/arturo21/gdom.git"
   },
   "keywords": [
-    "generaljs",
+    "gdom",
     "general",
-    "websocket",
-    "ajax",
-    "websorkers"
+    "dom",
+    "handle"
   ],
   "author": "Arturo Vsquez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arturo21/generaljs/issues"
+    "url": "https://github.com/arturo21/gdom/issues"
   },
-  "homepage": "https://github.com/arturo21/generaljs#readme"
+  "homepage": "https://github.com/arturo21/gdom#readme"
 }
