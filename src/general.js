@@ -178,16 +178,12 @@ g=(function(global,factory){
 			if(typeof id==='string'){
 				objeto=document.querySelector(id);
 				if(objeto){
-					console.log("FILTRO1");
 					tag=objeto.tagName;
 					tagf=tag.toLowerCase();
 					if(tagf=='input'){
-						console.log("FILTRO2");
 						attrib=objeto.getAttribute("type");
 						if(attrib!=null || attrib!=undefined || attrib!=''){
-							console.log("FILTRO2.5 " + attrib);	
 							if(attrib=='file'){
-								console.log("FILTRO3");
 								fileList = objeto.files;
 								callback(fileList);
 							}
@@ -214,7 +210,6 @@ g=(function(global,factory){
         let tovalue;
         obj=getelem(objval);
         if(obj.type!='select-one' && obj.type!="file"){
-			console.log("TIPO" + obj.type);
 			if(obj.type=="checkbox"){
 				if(obj.checked==true){
 					valor=true;
@@ -294,7 +289,6 @@ g=(function(global,factory){
 		return 0;
 	};
 	function getValAux_(){
-		console.log("ELEMAUX +" + this.elemaux);
 		return this.elemaux;
 	};
 	function emptyValAux_(){
@@ -306,7 +300,6 @@ g=(function(global,factory){
 		return 0;
 	};
 	function getChildrenAux_(){
-		console.log("CHILDRENAUX +" + this.childrenaux);
 		return this.childrenaux;
 	};
 	function emptyChildrenAux_(){
@@ -318,12 +311,28 @@ g=(function(global,factory){
 		return 0;
 	};
 	function getParentAux_(){
-		console.log("PARENTAUX +" + this.parentaux);
 		return this.parentaux;
 	};
 	function emptyParentAux_(){
 		this.parentaux=null;
 		return 0;
+	};
+	function setEndOfContenteditable(contentEditableElement){
+		var range,selection;
+		if(document.createRange){ //Firefox, Chrome, Opera, Safari, IE 9+
+		    range = document.createRange();//Create a range (a range is a like the selection but invisible)
+		    range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+		    range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+		    selection = window.getSelection();//get the selection object (allows you to change selection)
+		    selection.removeAllRanges();//remove any selections already made
+		    selection.addRange(range);//make the range you have just created the visible selection
+		}
+		else if(document.selection){ //IE 8 and lower 
+		    range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+		    range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+		    range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+		    range.select();//Select the range (make it the visible selection
+		}
 	};
 	setError.prototype = Object.create(Error.prototype);
 	//here wuould go public functions
@@ -389,6 +398,13 @@ g=(function(global,factory){
 				}
 				return this;
 			},
+			eval: function(){
+		      	objeto=getelem(domel);
+				textobjeto=objeto.innerHTML;
+			    if(objeto!=''){
+					eval(textobjeto);
+			    }
+			},
 			animate:function(){
 				let infiniteBool=0;
 				let speedanim=0;
@@ -410,7 +426,6 @@ g=(function(global,factory){
 				animpreffix=getAnimationEvent();
 				el.addEventListener(animpreffix,function(){
 					if(infiniteBool==true){
-						glog("INFINITO");
 						el.classList.remove('infinite');
 					}
 					el.classList.remove(animationName);
@@ -427,7 +442,6 @@ g=(function(global,factory){
 				el.classList.add('animated');
 				el.classList.add(animationName);
 				if(infiniteBool==true){
-					glog("INFINITO");
 					el.classList.add('infinite');
 				}
 				else{
@@ -450,7 +464,6 @@ g=(function(global,factory){
 				}
 				// The final 4 elements
 				if(found_elements.length>0){
-					glog(found_elements);
 					callbackfind(found_elements);
 				}
 				return this;
@@ -553,6 +566,12 @@ g=(function(global,factory){
 		      	else{
 		      		return objeto;
 		      	}
+			},
+			setCursorAtEnd:function(){
+		      	let objetoeditable;
+		      	objetoeditable=getelem(domel);
+				setEndOfContenteditable(objetoeditable);
+				return this;
 			},
 			is:function(classElem){
 		      	let objeto;
@@ -781,12 +800,23 @@ g=(function(global,factory){
 				objbef.insertAdjacentHTML('beforebegin', htmlstr);
 				return this;
 			},
-			append:function(html){
+			append:function(object){
 		      	//write code below...
 		      	let objappe;
 		      	let elChild = document.createElement('div');
+				let firstNow = performance.now();
+
 				objappe=getelem(domel);
-				elChild.innerHTML=html;
+				glog(objappe);
+				if(objappe.id==""){
+					id_aux="general";
+				}
+				else{
+					id_aux=objappe.id;
+				}
+				elChild.id="wrapper-" + id_aux + "-" + firstNow;
+				elChild.name="wrapper-" + id_aux + "-" + firstNow;
+				elChild.append(object);
 				objappe.appendChild(elChild);
 				return this;
 			},
@@ -802,7 +832,7 @@ g=(function(global,factory){
 		      	let objclo;
 		      	objclo=getelem(domel);
 		      	objclo.cloneNode(true);
-		      	return this;
+		      	return objclo;
 			},
 			children:function(){
 		      	//write code below...
@@ -856,7 +886,10 @@ g=(function(global,factory){
 			},
 			addClass:function(classele){
 		      	//write code below...
-		      	let obj;let stringclass;let stringarr;let i;
+		      	let obj;
+				let stringclass;
+				let stringarr;
+				let i;
 				stringclass="";
 				stringclass=classele;
 		      	obj=getelem(domel);
@@ -1235,6 +1268,10 @@ g=(function(global,factory){
 				control.removeEventListener(eventoCall,callback);
 				return this;
 			},
+			extend:function(callback){
+				//extiende las funcionalidades de la librería mediante la función interna extend
+				genrl.fn.extend(g,callback);
+			},
 			get: function(stylesStr){
 				let result;
 				let aux,i;
@@ -1277,10 +1314,6 @@ g=(function(global,factory){
 				}
 				return this;
 			},
-			extend:function(callback){
-				//extiende las funcionalidades de la librería mediante la función interna extend
-				genrl.fn.extend(g,callback);
-			},
 			css: function(style){
 				//Hacer callback un argumento opcional
 				let callbackCall;
@@ -1299,11 +1332,9 @@ g=(function(global,factory){
 				//Identificar que el callback es uuna finción
 				if(typeof arguments[1]==='function'){
 					callbackCall=arguments[1];
-					genrl.log("ES UNA FUNCION");
 				}
 				if(debugvar_(valaux)){
 					domelint=valaux;
-					genrl.log(domelint);
 				}
 				else{
 					if(debugvar_(valchildren)){
@@ -1316,14 +1347,18 @@ g=(function(global,factory){
 					}
 				}
 				if(typeof style==='object'){
-					genrl.log("ES UN OBJETO");
 					if(Array.isArray(domelint)){
 						if(style.length==undefined){
-							genrl.log("CONFIRMADO OBJETO");
+							genrl.log(style);
+							try{
+								g(domel).set(style);
+								return this;
+							}
+							catch(e){
+								genrl.log(e);
+							}
 						}
 						else{
-							genrl.log("CONFIRMADO ARRAY");
-							genrl.log(style);
 							let max=parseInt(style.length);
 							for(i=0;i<=max;i++){
 								aux=style[i];
@@ -1336,22 +1371,18 @@ g=(function(global,factory){
 							return objfinal;
 						}
 						if(style.length>0){
-							genrl.warn("ARRAY Cond 1");
 							try{
 								g(domel).set(style);
 								return this;
 							}
 							catch(e){
-								genrl.log("ERROR TRY CATCH 1");
 								genrl.log(e);
 							}
 						}
 					}
 				}
 				else{
-					genrl.warn("STRING Cond 2");
 					if(typeof style==='string'){
-						genrl.log("Es un string");
 						return g(domel).get(style);
 					}
 				}
