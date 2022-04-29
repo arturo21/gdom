@@ -1,6 +1,11 @@
 # gdom.js
 
-**JS library to handle DOM**
+**JS library to handle DOM / Events that works with General.JS**
+
+## Import from NPM
+```javascript
+	npm i gdom.js
+```
 
 ## Import library from CDN
 ```html

@@ -1,5 +1,5 @@
 {
-  "name": "gdom-0.0.1",
+  "name": "gdom.js",
   "version": "0.0.1",
   "description": "JS Library that handles DOM",
   "main": "webpack.config.js",
@@ -164,5 +164,6 @@
   "bugs": {
     "url": "https://github.com/arturo21/gdom/issues"
   },
-  "homepage": "https://github.com/arturo21/gdom#readme"
+  "homepage": "https://github.com/arturo21/gdom#readme",
+  "devDependencies": {}
 }
