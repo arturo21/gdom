@@ -2,7 +2,7 @@
 <p align="center">DOM simplificado, elegante y extensible</p>
 
 <p align="center">
-  <strong>Versión estable:</strong> <code>v0.0.1</code>  
+  <strong>Versión estable:</strong> <code>v0.0.2</code>  
 </p>
 
 <p align="center">
@@ -10,6 +10,7 @@
   <a href="#instalación">Instalación</a> •
   <a href="#ejemplo">Ejemplo</a> •
   <a href="#mejoras-recientes">Mejoras</a> •
+  <a href="#estructura-modular">Estructura modular</a> •
   <a href="#documentación">Documentación</a> •
   <a href="#contribuciones">Contribuciones</a>
 </p>
@@ -18,17 +19,17 @@
 
 ## 🚀 Características
 
-- ✅ Selección rápida y segura de elementos (`g('#id')`)
-- 🧱 Manipulación de contenido (`text`, `html`, `val`, `empty`)
-- 🎨 Estilos y clases (`css`, `addClass`, `removeClass`, `toggleClass`)
-- 🧩 Atributos y propiedades (`prop`, `cursor`, `hide`, `show`)
-- 🧭 Navegación DOM (`parent`, `children`, `next`, `prev`, `closest`)
-- 🧬 Mutación estructural (`append`, `prepend`, `before`, `after`, `remove`)
-- 🧠 Eventos (`on`, `trigger`, `preventDefault`, `stopPropagation`)
-- 🎞️ Animaciones (`animate`)
-- 📐 Geometría y scroll (`offset`, `position`, `scrollTop`, `outerHeight`)
-- 🧪 Formularios (`val`, `intval`, `floatval`, `getFiles`)
-- 🔍 Utilidades (`version`, `setCursorAtEnd`, `getArgs`)
+- ✅ API encadenable y fluida (`g('#id').text('Hola').addClass('activo')`)
+- 🧱 Manipulación de contenido (`html`, `text`, `empty`, `clone`, `replaceWith`)
+- 🎨 Estilos y clases (`css`, `addClass`, `removeClass`, `toggleClass`, `hasClass`, `cursor`)
+- 🧩 Atributos (`prop`, `data`, `addAttrb`, `rmAttrb`)
+- 🧠 Eventos (`on`, `once`, `off`, `delegate`, `trigger`, `preventDefault`, `stopPropagation`)
+- 🧬 Estructura DOM (`append`, `prepend`, `wrap`, `wrapAll`, `unwrap`, `children`, `first`, `last`)
+- 🧭 Navegación (`parent`, `prev`, `next`, `siblings`, `closest`)
+- 📐 Geometría (`offset`, `position`, `outerHeight`, `outerWidth`)
+- 🎞️ Scroll (`scrollTop`, `scrollLeft`, `gotodiv`, `smooth`)
+- 🧪 Formularios (`val`, `intval`, `floatval`, `emptyVal`, `resetText`, `getFiles`, `serialize`)
+- 🔍 Utilidades (`version`, `getArgs`, `setCursorAtEnd`)
 
 ---
 
