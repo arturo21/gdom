@@ -1,11 +1,22 @@
-# 📦 gdom.js — DOM simplificado, elegante y extensible
+<h1 align="center">📦 gdom.js</h1>
+<p align="center">DOM simplificado, elegante y extensible</p>
 
-> ⚙️ **Versión estable:** `v0.0.1`  
-> Micro-librería modular para manipular el DOM con una API fluida, encadenable y extensible.
+<p align="center">
+  <strong>Versión estable:</strong> <code>v0.0.1</code>  
+</p>
+
+<p align="center">
+  <a href="#características">Características</a> •
+  <a href="#instalación">Instalación</a> •
+  <a href="#ejemplo">Ejemplo</a> •
+  <a href="#mejoras-recientes">Mejoras</a> •
+  <a href="#documentación">Documentación</a> •
+  <a href="#contribuciones">Contribuciones</a>
+</p>
 
 ---
 
-## 🚀 Características principales
+## 🚀 Características
 
 - ✅ Selección rápida y segura de elementos (`g('#id')`)
 - 🧱 Manipulación de contenido (`text`, `html`, `val`, `empty`)
@@ -18,18 +29,6 @@
 - 📐 Geometría y scroll (`offset`, `position`, `scrollTop`, `outerHeight`)
 - 🧪 Formularios (`val`, `intval`, `floatval`, `getFiles`)
 - 🔍 Utilidades (`version`, `setCursorAtEnd`, `getArgs`)
-
----
-
-## ✨ Mejoras recientes
-
-| Método        | Mejora aplicada                                                                 |
-|---------------|----------------------------------------------------------------------------------|
-| `addClass`    | ✅ Acepta múltiples clases separadas por espacios<br>✅ Evita errores DOMTokenList |
-| `removeClass` | ✅ Elimina múltiples clases en una sola llamada<br>✅ Encadenamiento fluido        |
-| `toggleClass` | ✅ Alterna múltiples clases<br>✅ Manejo robusto de espacios y tokens inválidos     |
-| `css`         | ✅ Soporta lectura, escritura individual y múltiple<br>✅ Encadenamiento fluido     |
-| `index.js`    | ✅ `g` ahora se expone globalmente como `window.g` para uso directo en navegador   |
 
 ---
 
