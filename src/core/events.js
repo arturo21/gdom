@@ -56,15 +56,15 @@ export function methods(el) {
     },
 
     // 🔹 Shortcuts
-    click(cb)        { return bind('click', cb); }
-    change(cb)       { return bind('change', cb); }
-    submit(cb)       { return bind('submit', cb); }
-    keydown(cb)      { return bind('keydown', cb); }
-    keyup(cb)        { return bind('keyup', cb); }
-    mouseenter(cb)   { return bind('mouseenter', cb); }
-    mouseleave(cb)   { return bind('mouseleave', cb); }
-    focus(cb)        { return bind('focus', cb); }
-    blur(cb)         { return bind('blur', cb); }
+    click(cb)        { return bind('click', cb); },
+    change(cb)       { return bind('change', cb); },
+    submit(cb)       { return bind('submit', cb); },
+    keydown(cb)      { return bind('keydown', cb); },
+    keyup(cb)        { return bind('keyup', cb); },
+    mouseenter(cb)   { return bind('mouseenter', cb); },
+    mouseleave(cb)   { return bind('mouseleave', cb); },
+    focus(cb)        { return bind('focus', cb); },
+    blur(cb)         { return bind('blur', cb); },
     input(cb)        { return bind('input', cb); }
   };
 
