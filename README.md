@@ -1,11 +1,42 @@
-# gdom.js
+# 📦 gdom.js — DOM simplificado, elegante y extensible
 
-**JS library to handle DOM / Events that works with General.JS**
+> ⚙️ **Versión estable:** `v0.0.1`  
+> Micro-librería modular para manipular el DOM con una API fluida, encadenable y extensible.
 
-## Import from NPM
-```javascript
-	npm i gdom.js
-```
+---
+
+## 🚀 Características principales
+
+- ✅ Selección rápida y segura de elementos (`g('#id')`)
+- 🧱 Manipulación de contenido (`text`, `html`, `val`, `empty`)
+- 🎨 Estilos y clases (`css`, `addClass`, `removeClass`, `toggleClass`)
+- 🧩 Atributos y propiedades (`prop`, `cursor`, `hide`, `show`)
+- 🧭 Navegación DOM (`parent`, `children`, `next`, `prev`, `closest`)
+- 🧬 Mutación estructural (`append`, `prepend`, `before`, `after`, `remove`)
+- 🧠 Eventos (`on`, `trigger`, `preventDefault`, `stopPropagation`)
+- 🎞️ Animaciones (`animate`)
+- 📐 Geometría y scroll (`offset`, `position`, `scrollTop`, `outerHeight`)
+- 🧪 Formularios (`val`, `intval`, `floatval`, `getFiles`)
+- 🔍 Utilidades (`version`, `setCursorAtEnd`, `getArgs`)
+
+---
+
+## ✨ Mejoras recientes
+
+| Método        | Mejora aplicada                                                                 |
+|---------------|----------------------------------------------------------------------------------|
+| `addClass`    | ✅ Acepta múltiples clases separadas por espacios<br>✅ Evita errores DOMTokenList |
+| `removeClass` | ✅ Elimina múltiples clases en una sola llamada<br>✅ Encadenamiento fluido        |
+| `toggleClass` | ✅ Alterna múltiples clases<br>✅ Manejo robusto de espacios y tokens inválidos     |
+| `css`         | ✅ Soporta lectura, escritura individual y múltiple<br>✅ Encadenamiento fluido     |
+| `index.js`    | ✅ `g` ahora se expone globalmente como `window.g` para uso directo en navegador   |
+
+---
+
+## 🔧 Instalación
+
+```bash
+npm install gdom.js
 
 ## Import library from CDN
 ```html

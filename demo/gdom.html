@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo gdom.js</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    .box { width: 200px; height: 100px; background: lightgray; margin-bottom: 1rem; transition: all 0.3s ease; }
+    .highlight { background: gold; }
+    .hidden { display: none; }
+    .animated { transition: all 0.5s ease; }
+    .fadeIn { opacity: 1; }
+    .fadeOut { opacity: 0; }
+  </style>
+</head>
+<body>
+
+  <h1 id="titulo">Demo gdom.js</h1>
+
+  <div id="caja" class="box">Caja</div>
+
+  <button id="toggle">Toggle clase</button>
+  <button id="animar">Animar</button>
+  <button id="ocultar">Ocultar</button>
+  <button id="mostrar">Mostrar</button>
+
+  <form id="formulario">
+    <input type="text" id="nombre" placeholder="Tu nombre" />
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="saludo" class="hidden"></p>
+
+  <script src="../dist/gdom.min.js"></script>
+  <script type="text/javascript">
+	// Cambiar texto y estilos
+	g('#titulo').text('Bienvenido a gdom.js');
+	g('#caja').css({
+	  border: '2px solid black',
+	  color: 'white',
+	  textAlign: 'center',
+	  lineHeight: '100px'
+	});
+
+	// Toggle de clase
+	g('#toggle').on('click', () => {
+	  g('#caja').toggleClass('highlight');
+	});
+
+	// Animación simulada
+	g('#animar').on('click', () => {
+	  g('#caja').addClass('animated fadeOut');
+	  setTimeout(() => {
+	    g('#caja').removeClass('fadeOut').addClass('fadeIn');
+	  }, 500);
+	});
+
+	// Mostrar y ocultar
+	g('#ocultar').on('click', () => g('#caja').hide());
+	g('#mostrar').on('click', () => g('#caja').show());
+
+	// Formulario
+	g('#formulario').on('submit', e => {
+	  e.preventDefault();
+	  const nombre = g('#nombre').val();
+	  g('#saludo').text(`Hola, ${nombre}!`).removeClass('hidden');
+	});
+  </script>
+</body>
+</html>

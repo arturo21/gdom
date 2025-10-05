@@ -1,79 +1,69 @@
-var path = require('path');
-var webpack = require("webpack");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const sourcePath = __dirname + '/src';
-const destinationPath = __dirname + '/dist';
+const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
-var config = module.exports = {
-	optimization: {
-	    minimizer: [new UglifyJsPlugin({
-	    	include: /\/css/,
-	    	include: /\/mods/,
-			sourceMap: true,
-	    })],
-	},
-	context: sourcePath,
-	watch: false,
-	devtool: 'source-map',
-	mode:"production",
-	  optimization: {
-		minimizer: [new UglifyJsPlugin()],
-	  },
-	entry: {
-		app: ["./main.js"]
-	},
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-    	filename: 'gdom.min.js',
-    	publicPath: '/',
-	},
-	module:{
-		rules:[
-			{
-                test   : /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file-loader',
-				options: {
-					useRelativePath:true,
-					name: 'fonts/[name].[ext]'
-				}
-           	},
-           	{
-                test   : /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file-loader',
-				options: {
-					useRelativePath:true,
-					name: 'fonts/[name].[ext]'
-				}
-           	},
-           	{
-                test   : /\.(jpeg|jpg|png(2)?)(\?[a-z0-9=&.]+)?$/,
-				loader: 'file-loader?name=img/[name].[ext]',
-				options: {
-					useRelativePath:true,
-					name: 'img_inner/[name].[ext]'
-				}
-           	},
-           	{ 
-				test: /\.scss$/, 
-				loader: "sass-loader"
-			},
-           	{
-				test: /\.css$/, 
-				loader: "style-loader"
-			},
-			{
-				test: /\.css$/, 
-				loader: "css-loader"
-			},
-		    { 
-			  test: /\.js$/,
-		      exclude: /(node_modules|bower_components)/,
-		      include: __dirname + "/mods/",
-		      loader: 'babel-loader', // 'babel-loader' is also a valid name to reference
-		      query: {
-		        presets: ['es2015']
-		      }
-		    }
-		]
-	},
+const sourcePath = path.resolve(__dirname, 'src');
+const destinationPath = path.resolve(__dirname, 'dist');
+
+module.exports = {
+  context: sourcePath,
+  mode: 'production',
+  entry: {
+    app: './index.js'
+  },
+  output: {
+    path: destinationPath,
+    filename: 'gdom.min.js',
+    publicPath: '/'
+  },
+  devtool: 'source-map',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        extractComments: false,
+        terserOptions: {
+          compress: {
+            drop_console: true,
+            drop_debugger: true
+          }
+        }
+      })
+    ]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: sourcePath,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(woff2?|ttf|eot|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
+      },
+      {
+        test: /\.(jpe?g|png)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img_inner/[name][ext]'
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js']
+  }
 };
