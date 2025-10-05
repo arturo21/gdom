@@ -6,6 +6,10 @@ import * as traversal from './core/traversal.js';
 import * as mutation from './core/mutation.js';
 import * as form from './core/form.js';
 import * as style from './core/style.js';
+import * as structure from './core/structure.js';
+import * as navigation from './core/navigation.js';
+import * as scroll from './core/scroll.js';
+import * as core from './core/core.js';
 import { getelem } from './core/utils.js';
 
 export const g = selector => {
@@ -20,7 +24,11 @@ export const g = selector => {
     ...traversal.methods(el),
     ...mutation.methods(el),
     ...form.methods(el),
-    ...style.methods(el)
+    ...style.methods(el),
+    ...structure.methods(el),
+    ...navigation.methods(el),
+    ...scroll.methods(el),
+    ...core.methods(el)
   };
 };
 

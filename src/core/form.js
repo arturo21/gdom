@@ -23,6 +23,15 @@ export function methods(el) {
     },
     getFiles() {
       return el.files ?? null;
+    },
+    serialize() {
+      if (el.tagName !== 'FORM') return {};
+      const data = new FormData(el);
+      const result = {};
+      for (const [key, value] of data.entries()) {
+        result[key] = value;
+      }
+      return result;
     }
   };
 }
