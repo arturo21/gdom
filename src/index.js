@@ -1,6 +1,6 @@
 import * as dom from './core/dom.js';
 import * as events from './core/events.js';
-import * as animation from './core/animation.js';
+import * as animation from './core/animate.js';
 import * as geometry from './core/geometry.js';
 import * as traversal from './core/traversal.js';
 import * as mutation from './core/mutation.js';
