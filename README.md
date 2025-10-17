@@ -34,6 +34,21 @@
 | 🎯 Animaciones integradas    | `fadeIn`, `slideUp`, `slideDown`, `slideToggle`, `bounce`, `timeline`, `animateCSS`  |
 | 🔍 Utilidades                | `version`, `getArgs`, `setCursorAtEnd`, `extend`, `safeEval`, `logEvent`             |
 
+---
+## Manejo de Eventos
+
+### 🔧 Métodos disponibles
+
+| Método              | Descripción                                                                 |
+|---------------------|------------------------------------------------------------------------------|
+| `.on(event, fn)`     | Escucha un evento en el elemento seleccionado.                              |
+| `.once(event, fn)`   | Escucha el evento solo una vez.                                             |
+| `.off(event, fn)`    | Elimina el listener del evento.                                             |
+| `.delegate(sel, ev)` | Escucha eventos en hijos que coincidan con el selector.                     |
+| `.trigger(event)`    | Dispara manualmente un evento.                                              |
+| `.preventDefault()`  | Previene el comportamiento por defecto del evento actual.                   |
+| `.stopPropagation()` | Detiene la propagación del evento en el árbol DOM.                          |
+
 
 ---
 
