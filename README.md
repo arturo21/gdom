@@ -69,6 +69,7 @@ El sistema de eventos de `gdom` está diseñado para ofrecer control total, clar
 
 ```bash
 npm install gdom.js
+```
 
 ## Import library from CDN
 ```html
