@@ -19,17 +19,21 @@
 
 ## 🚀 Características
 
-- ✅ API encadenable y fluida (`g('#id').text('Hola').addClass('activo')`)
-- 🧱 Manipulación de contenido (`html`, `text`, `empty`, `clone`, `replaceWith`)
-- 🎨 Estilos y clases (`css`, `addClass`, `removeClass`, `toggleClass`, `hasClass`, `cursor`)
-- 🧩 Atributos (`prop`, `data`, `addAttrb`, `rmAttrb`)
-- 🧠 Eventos (`on`, `once`, `off`, `delegate`, `trigger`, `preventDefault`, `stopPropagation`)
-- 🧬 Estructura DOM (`append`, `prepend`, `wrap`, `wrapAll`, `unwrap`, `children`, `first`, `last`)
-- 🧭 Navegación (`parent`, `prev`, `next`, `siblings`, `closest`)
-- 📐 Geometría (`offset`, `position`, `outerHeight`, `outerWidth`)
-- 🎞️ Scroll (`scrollTop`, `scrollLeft`, `gotodiv`, `smooth`)
-- 🧪 Formularios (`val`, `intval`, `floatval`, `emptyVal`, `resetText`, `getFiles`, `serialize`)
-- 🔍 Utilidades (`version`, `getArgs`, `setCursorAtEnd`)
+| 🧠 Categoría                  | 🧩 Métodos disponibles                                                                 |
+|-----------------------------|----------------------------------------------------------------------------------------|
+| ✅ API encadenable y fluida  | `g('#id').text('Hola').addClass('activo')`                                            |
+| 🧱 Manipulación de contenido | `html`, `text`, `empty`, `clone`, `replaceWith`                                       |
+| 🎨 Estilos y clases          | `css`, `addClass`, `removeClass`, `toggleClass`, `hasClass`, `cursor`                |
+| 🧩 Atributos                 | `prop`, `data`, `addAttrb`, `rmAttrb`                                                 |
+| 🧠 Eventos                   | `on`, `once`, `off`, `delegate`, `trigger`, `preventDefault`, `stopPropagation`       |
+| 🧬 Estructura DOM            | `append`, `prepend`, `wrap`, `wrapAll`, `unwrap`, `children`, `first`, `last`        |
+| 🧭 Navegación                | `parent`, `prev`, `next`, `siblings`, `closest`                                       |
+| 📐 Geometría                 | `offset`, `position`, `outerHeight`, `outerWidth`                                     |
+| 🎞️ Scroll                   | `scrollTop`, `scrollLeft`, `gotodiv`, `smooth`                                        |
+| 🧪 Formularios               | `val`, `intval`, `floatval`, `emptyVal`, `resetText`, `getFiles`, `serialize`        |
+| 🎯 Animaciones integradas    | `fadeIn`, `slideUp`, `slideDown`, `slideToggle`, `bounce`, `timeline`, `animateCSS`  |
+| 🔍 Utilidades                | `version`, `getArgs`, `setCursorAtEnd`, `extend`, `safeEval`, `logEvent`             |
+
 
 ---
 
