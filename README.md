@@ -49,6 +49,19 @@
 | `.preventDefault()`  | Previene el comportamiento por defecto del evento actual.                   |
 | `.stopPropagation()` | Detiene la propagación del evento en el árbol DOM.                          |
 
+---
+
+## 🧩 Ventajas del sistema de eventos
+
+El sistema de eventos de `gdom` está diseñado para ofrecer control total, claridad sintáctica y compatibilidad con animaciones, rutas y componentes. Estas son sus principales ventajas:
+
+- ✅ Encadenamiento fluido: puedes combinar `.on()`, `.once()`, `.off()` con cualquier método de `gdom`.
+- 🧠 Control granular: permite delegar, prevenir y detener eventos con precisión (`delegate`, `preventDefault`, `stopPropagation`).
+- 🎯 Integración con animaciones: se enlaza fácilmente con métodos como `slideUp`, `slideDown`, `bounce`, etc.
+- 🧩 Compatibilidad con rutas y componentes: ideal para sistemas interactivos con navegación activa y fichas dinámicas.
+- 🧬 Ideal para entornos pedagógicos: permite crear experiencias interactivas y seguras para niños, docentes y editores.
+- 🔐 Seguridad y claridad: evita comportamientos no deseados y facilita el debugging en entornos técnicos y educativos.
+
 
 ---
 
