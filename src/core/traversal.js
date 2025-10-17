@@ -1,5 +1,6 @@
 export function methods(el) {
   return {
+    // 🧭 Traversing básico
     parent() {
       return el.parentNode;
     },
@@ -26,6 +27,44 @@ export function methods(el) {
     },
     index() {
       return Array.from(el.parentNode.children).indexOf(el);
+    },
+
+    // 🧭 Traversing avanzado
+    find(selector) {
+      return Array.from(el.querySelectorAll(selector));
+    },
+    eq(index) {
+      return el.parentNode?.children?.[index] ?? null;
+    },
+    not(selector) {
+      return el.matches(selector) ? null : el;
+    },
+    filter(fn) {
+      return fn(el) ? el : null;
+    },
+    each(fn) {
+      fn.call(el, 0, el);
+      return el;
+    },
+
+    // 🧩 Manipulación avanzada de atributos
+    attr(key, val) {
+      if (val === undefined) {
+        return el.getAttribute(key);
+      }
+      el.setAttribute(key, val);
+      return el;
+    },
+    removeAttr(key) {
+      el.removeAttribute(key);
+      return el;
+    },
+    prop(key, val) {
+      if (val === undefined) {
+        return el[key];
+      }
+      el[key] = val;
+      return el;
     }
   };
 }
