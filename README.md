@@ -62,8 +62,18 @@ El sistema de eventos de `gdom` está diseñado para ofrecer control total, clar
 - 🧬 Ideal para entornos pedagógicos: permite crear experiencias interactivas y seguras para niños, docentes y editores.
 - 🔐 Seguridad y claridad: evita comportamientos no deseados y facilita el debugging en entornos técnicos y educativos.
 
-
 ---
+
+## 🔌 Sistema de plugins en gdom (vía General.JS v2)
+| 🧩 Característica             | 📘 Descripción técnica                                                                 |
+|------------------------------|----------------------------------------------------------------------------------------|
+| 🔌 Registro dinámico         | Los plugins se integran mediante `.extend()` o `.use()` desde `General.JS v2`.        |
+| 🧠 Encapsulamiento por módulo | Cada plugin puede definir sus propios métodos, eventos, efectos o utilidades.         |
+| 🔄 Encadenamiento fluido     | Los métodos añadidos por plugins se integran al flujo encadenable de `gdom`.          |
+| 🧬 Compatibilidad total      | Los plugins pueden interactuar con `animate`, `bind`, `routing`, `reactive`, etc.     |
+| 🧪 Tipos de plugins soportados| Visuales, estructurales, de eventos, formularios, AJAX, seguridad, pedagogía.         |
+| 🧱 Base técnica               | Usa `Object.assign`, `prototype`, o `extend()` para inyectar funcionalidad.           |
+
 
 ## 🔧 Instalación
 
