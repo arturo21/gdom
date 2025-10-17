@@ -105,11 +105,45 @@ const animate = (function () {
     animateCSS(el, 'opacity', '', 0, 1, duration, 'easeOutQuad');
   }
 
+  function slideDown(el, duration = 500) {
+    el.style.removeProperty('display');
+    let display = window.getComputedStyle(el).display;
+    if (display === 'none') display = 'block';
+    el.style.display = display;
+
+    const height = el.scrollHeight;
+    el.style.overflow = 'hidden';
+    el.style.height = '0px';
+
+    animate(0, height, duration, 'easeOutQuad', val => {
+      el.style.height = val + 'px';
+    }, () => {
+      el.style.removeProperty('height');
+      el.style.removeProperty('overflow');
+    });
+  }
+
   function slideUp(el, duration = 500) {
-    el.style.transform = 'translateY(100%)';
-    el.style.opacity = 0;
-    el.style.display = 'block';
-    animateFromTo(el, { transform: 'translateY(100%)', opacity: 0 }, { transform: 'translateY(0%)', opacity: 1 }, duration, 'easeOutQuad');
+    const height = el.scrollHeight;
+    el.style.overflow = 'hidden';
+    el.style.height = height + 'px';
+
+    animate(height, 0, duration, 'easeInQuad', val => {
+      el.style.height = val + 'px';
+    }, () => {
+      el.style.display = 'none';
+      el.style.removeProperty('height');
+      el.style.removeProperty('overflow');
+    });
+  }
+
+  function slideToggle(el, duration = 500) {
+    const display = window.getComputedStyle(el).display;
+    if (display === 'none') {
+      slideDown(el, duration);
+    } else {
+      slideUp(el, duration);
+    }
   }
 
   function bounce(el, duration = 600) {
@@ -144,6 +178,8 @@ const animate = (function () {
     select,
     fadeIn,
     slideUp,
+    slideDown,
+    slideToggle,
     bounce,
     timeline,
     easings,
