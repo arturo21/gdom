@@ -1,38 +1,46 @@
-import * as dom from './core/dom.js';
-import * as events from './core/events.js';
-import * as animation from './core/animate.js';
-import * as geometry from './core/geometry.js';
-import * as traversal from './core/traversal.js';
-import * as mutation from './core/mutation.js';
-import * as form from './core/form.js';
-import * as style from './core/style.js';
-import * as structure from './core/structure.js';
-import * as navigation from './core/navigation.js';
-import * as scroll from './core/scroll.js';
-import * as core from './core/core.js';
-import { getelem } from './core/utils.js';
+const dom = require('./core/dom.js');
+const events = require('./core/events.js');
+const animation = require('./core/animate.js');
+const geometry = require('./core/geometry.js');
+const traversal = require('./core/traversal.js');
+const mutation = require('./core/mutation.js');
+const form = require('./core/form.js');
+const style = require('./core/style.js');
+const structure = require('./core/structure.js');
+const navigation = require('./core/navigation.js');
+const scroll = require('./core/scroll.js');
+const core = require('./core/core.js');
+const { getelem } = require('./core/utils.js');
+const módulos = {
+  dom, events, animation, geometry, traversal,
+  mutation, form, style, structure, navigation,
+  scroll, core
+};
 
-export const g = selector => {
+const g = selector => {
   const el = getelem(selector);
   if (!el) return {};
 
-  return {
-    ...dom.methods(el),
-    ...events.methods(el),
-    ...animation.methods(el),
-    ...geometry.methods(el),
-    ...traversal.methods(el),
-    ...mutation.methods(el),
-    ...form.methods(el),
-    ...style.methods(el),
-    ...structure.methods(el),
-    ...navigation.methods(el),
-    ...scroll.methods(el),
-    ...core.methods(el)
-  };
+  const resultado = {};
+
+  for (const [nombre, mod] of Object.entries(módulos)) {
+    if (!mod || typeof mod.methods !== 'function') {
+      console.error(`[ERROR] El módulo "${nombre}" no tiene una función methods(el) válida`);
+      continue;
+    }
+    try {
+      Object.assign(resultado, mod.methods(el));
+    } catch (err) {
+      console.error(`[ERROR] Falló "${nombre}.methods(el)":`, err);
+    }
+  }
+
+  return resultado;
 };
 
-// ✅ Exponer g al entorno global
+// ✅ Exponer gdom al entorno global si está en navegador
 if (typeof window !== 'undefined') {
   window.g = g;
 }
+
+module.exports = g;
